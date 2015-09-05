@@ -2,19 +2,27 @@ var http = require('http'),
     fs = require('fs'),
     url = require('url'),
     qs = require('querystring'),
+    mime = require('mime'),
+    path = require('path'),
     database = require('./database.json'),
     port = Number(process.env.PORT || 2000),
     server;
+
+    // add isWebPage or localhost
 
 server = new http.Server(function(req, res) {
     var urlParsed = url.parse(req.url, true),
         requestOrigin = req.headers.origin,
         reqBody = '',
+        filePath = false,
+        absPath,
         parsedData,
         json;
 
-    res.setHeader('Access-Control-Allow-Origin', requestOrigin);
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    if (requestOrigin) {
+        res.setHeader('Access-Control-Allow-Origin', requestOrigin);
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    }
 
     if (urlParsed.pathname == '/submit') {
         req.on('data', function(data) {
@@ -51,13 +59,26 @@ server = new http.Server(function(req, res) {
         res.statusCode = 200;
         res.end('The request has been removed from database!');
         });
+    } else if (req.url == '/') {
+        filePath = "../index.html";
     } else {
-        res.statusCode = 404;
-        res.end('Can\'t reach the server');
+        filePath = "../" + req.url;
     }
+    absPath = "./" + filePath;
+
+    function sendPage(response, filePath, fileContents) {
+        response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))});
+        response.end(fileContents);
+    }
+    function serverLoadContent(response, absPath) {
+        fs.readFile(absPath, function(err, data) {
+            sendPage(response, absPath, data);
+        });
+    }
+    serverLoadContent(res, absPath);
 });
 
-server.listen(port, 'localhost', function() {
+server.listen(port, 'https://ui-brush.herokuapp.com', function() { // may be additional / needed ??? or without https://
     console.log('Server running at http://localhost:2000');
 });
 

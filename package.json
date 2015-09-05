@@ -2,6 +2,9 @@
   "name": "ui_brush",
   "version": "1.0.0",
   "description": "Experimental home project",
+  "dependencies" : {
+    "mime" : "~1.2.7"
+  },
   "main": "www/js/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
