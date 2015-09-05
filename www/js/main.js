@@ -1,5 +1,4 @@
 (function () {
-
     function xhr() {
         var xmlHttp;
 
@@ -10,8 +9,7 @@
         }
         return xmlHttp;
     }
-
-    // Load all requests from database
+    // Load all saved requests from database
     $(document).ready(function(){
         var request = xhr();
 
@@ -38,14 +36,6 @@
             request.open('POST', 'http://localhost:2000/submit');
             request.onreadystatechange = responseHandler;
             request.send(postData);
-            // LOADER ICON
-            //$('#loading').bind("ajaxSend", function(){
-            //    $(this).show();
-            //}).bind("ajaxComplete", function(){
-            //    setTimeout(function() {
-            //        $(this).hide();
-            //    }, 500);
-            //});
         }
             
         function responseHandler() {
@@ -55,7 +45,7 @@
             } else if (this.readyState == 4 && this.status == 404) {
                 $('body').append('<h1>' + this.responseText + '</h1>');
             }
-                // Clear the form values
+            // Clear the form values
             $('#username, #useremail, #usermessage').val('');
         }
 
@@ -74,52 +64,4 @@
         };
         $(this).parents('tr').remove();
     });
-    // Form inputs validation
-    function validator() {
-        var regName = /^[A-Za-z0-9_-]{3,16}$/,
-            regEmail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-            regMessage = /./,
-            userNameInput = $('#username'),
-            userEmailInput = $('#useremail'),
-            userMessageInput = $('#usermessage'),
-            inputsAll = $('#username, #useremail, #usermessage');
-
-        if (inputCheck(userNameInput, regName) === true &&
-            inputCheck(userEmailInput, regEmail) === true &&
-            inputCheck(userMessageInput, regMessage) === true) {
-                inputsAll.parents('.form-group').removeClass('has-success has-error');
-                inputsAll.next().css('color', 'red').text('');
-            return true;
-        } else {
-            console.log('Validation error!!!');
-            return false;
-        }
-    }
-
-    function inputCheck(input, regExp) {
-        input.parents('.form-group').removeClass('has-error');
-        input.next().css('color', 'red').text('');
-
-        if (input.val().length === 0) {
-            input.parents('.form-group').addClass('has-error');
-            input.next().text('* All fields are mandatory');
-            input.focus();
-            return false;
-
-        } else if (input.val().match(regExp)) {
-            input.parents('.form-group').addClass('has-success');
-            input.next().css('color', 'green').text('* Valid input');
-            return true;
-        } else {
-            input.parents('.form-group').addClass('has-error');
-            input.next().text('* Invalid input');
-            input.focus();
-            return false;
-        }
-    }
-
-    slider();
-
 })();
-
-// my changes for git commit

@@ -6791,6 +6791,9 @@ body hr {
 body section {
   padding: 60px 0;
 }
+body .revealOnScroll {
+  opacity: 0;
+}
 body header {
   height: 70px;
   color: #464646;
@@ -7088,8 +7091,9 @@ body #contacts input + .mistake,
 body #contacts textarea + .mistake {
   display: block;
   height: 30px;
-  line-height: 30px;
-  color: red;
+  line-height: 1.2 !important;
+  color: #D8000C;
+  font: 300 12px 'Open Sans', sans-serif;
 }
 body #contacts .form-group .col {
   padding: 0;

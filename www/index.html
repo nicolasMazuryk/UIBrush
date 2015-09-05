@@ -5,9 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>UI Brush</title>
-    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css"/>
     <link rel="stylesheet" href="css/styles.css"/>
     <!--[if lt IE9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -60,15 +61,15 @@
             <hr/>
             <div class="row">
                 <div class="col col-md-4 left">
-                    <div class="wrapper">
+                    <div class="wrapper revealOnScroll" data-animation="bounceInLeft">
                         <h4>Free PSD</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi blanditiis hic illo iste, nulla tempore velit? Magni!</p>
                     </div>
-                    <div class="wrapper">
+                    <div class="wrapper revealOnScroll" data-animation="bounceInLeft">
                         <h4>Bootstrap Layout</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequuntur distinctio eaque illum in iure nihil veniam.</p>
                     </div>
-                    <div class="wrapper">
+                    <div class="wrapper revealOnScroll" data-animation="bounceInLeft">
                         <h4>Easy To Customize</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta eius omnis sed. Libero natus possimus quasi repellendus?</p>
                     </div>
@@ -77,15 +78,15 @@
                     <img src="img/tablet.png" alt="Tablet image"/>
                 </div>
                 <div class="col col-md-4 right">
-                    <div class="wrapper">
+                    <div class="wrapper revealOnScroll" data-animation="bounceInRight">
                         <h4>Clean Design</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam deleniti dolore quas quibusdam? Officia qui temporibus voluptates.</p>
                     </div>
-                    <div class="wrapper">
+                    <div class="wrapper revealOnScroll" data-animation="bounceInRight">
                         <h4>Organized In Folders</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequuntur dolorem, error facere inventore recusandae tempore ut?</p>
                     </div>
-                    <div class="wrapper">
+                    <div class="wrapper revealOnScroll" data-animation="bounceInRight">
                         <h4>Font Awesome Icons</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores aspernatur, necessitatibus quibusdam quisquam quo repellendus reprehenderit?</p>
                     </div>
@@ -98,24 +99,24 @@
             <div class="row">
                 <h1>testimonial</h1>
                 <hr/>
-                <div id="slider">
+                <div id="slider" class="revealOnScroll" data-animation="slideInUp">
                     <a href="#" class="control-prev"><span class="glyphicon glyphicon-menu-left"></span></a>
                     <a href="#" class="control-next"><span class="glyphicon glyphicon-menu-right"></span></a>
                     <ul>
                         <li>
                             <div class="team-member-1"></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi corporis doloremque ducimus in magni, maiores nostrum officiis quae quaerat!</p>
-                            <span>-Joann Sims</span>
+                            <span>-Cody Black</span>
                         </li>
                         <li>
                             <div class="team-member-2"></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eveniet officiis repellat veritatis? Ad aliquid atque, cumque explicabo facere, fugit id illo iure minus non odit quaerat, tempore. Quis, repudiandae?</p>
-                            <span>-Patrik Howard</span>
+                            <span>-Joann Sims</span>
                         </li>
                         <li>
                             <div class="team-member-3"></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi architecto aut commodi consequatur dolores error, exercitationem illum ipsam maiores maxime mollitia obcaecati, officia quia repellendus sapiente, voluptatem!</p>
-                            <span>-Cody Black</span>
+                            <span>-Patrik Howard</span>
                         </li>
                     </ul>
                 </div>
@@ -131,7 +132,7 @@
         <div class="container">
             <h1>pricing</h1>
             <hr/>
-            <div class="col col-md-3">
+            <div class="col col-md-3 revealOnScroll" data-animation="bounceInLeft">
                 <ul class="list-group">
                     <li class="list-group-item">$19.99</li>
                     <li class="list-group-item package">starter</li>
@@ -142,7 +143,7 @@
                     <li class="btn btn-default">buy now</li>
                 </ul>
             </div>
-            <div class="col col-md-3">
+            <div class="col col-md-3 revealOnScroll" data-animation="bounceInLeft">
                 <ul class="list-group">
                     <li class="list-group-item">$19.99</li>
                     <li class="list-group-item package">starter</li>
@@ -153,7 +154,7 @@
                     <li class="btn btn-default center">buy now</li>
                 </ul>
             </div>
-            <div class="col col-md-3">
+            <div class="col col-md-3 revealOnScroll" data-animation="bounceInRight">
                 <ul class="list-group">
                     <li class="list-group-item">$19.99</li>
                     <li class="list-group-item package">starter</li>
@@ -164,7 +165,7 @@
                     <li class="btn btn-default center">buy now</li>
                 </ul>
             </div>
-            <div class="col col-md-3">
+            <div class="col col-md-3 revealOnScroll" data-animation="bounceInRight">
                 <ul class="list-group">
                     <li class="list-group-item">$19.99</li>
                     <li class="list-group-item package">starter</li>
@@ -217,15 +218,6 @@
                     </div>
                     <img src="img/loading.GIF" alt="loading gif" id="loading">
                 </div>
-                <!--<div class="col col-md-6">-->
-                    <!--<h5>address:</h5>-->
-                    <!--<img src="img/google-map.jpg" alt="Google-map"/>-->
-                    <!--<ul class="contact-details">-->
-                        <!--<li><span class="glyphicon glyphicon-map-marker"></span>1397 Meadowcrest Lane, Lexington</li>-->
-                        <!--<li><span class="glyphicon glyphicon-earphone"></span>606-463-2014</li>-->
-                        <!--<li><span class="glyphicon glyphicon-envelope"></span>Email@domain.com</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
                 <div class="col col-md-6">
                     <h5>recently received requests</h5>
                     <table class="table table-striped">
@@ -250,16 +242,12 @@
     <footer>
         <span>Copyright &copy; NicolasMazuryk 2015</span>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/features.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/validation.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
 
 
