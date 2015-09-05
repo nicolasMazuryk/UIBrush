@@ -5,7 +5,7 @@ var http = require('http'),
     mime = require('mime'),
     path = require('path'),
     database = require('./database.json'),
-    //port = Number(process.env.PORT || 2000),
+    port = process.env.PORT || 2000,
     server;
 
     // add isWebPage or localhost
@@ -78,7 +78,7 @@ server = new http.Server(function(req, res) {
     serverLoadContent(res, absPath);
 });
 
-server.listen(process.env.PORT || 2000, function() { // may be additional / needed ??? or without https://
+server.listen(port, 'https://ui-brush.herokuapp.com/', function() { // may be additional / needed ??? or without https://
     console.log('Server running at http://localhost:2000');
 });
 
