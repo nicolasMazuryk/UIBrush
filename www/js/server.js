@@ -5,7 +5,8 @@ var http = require('http'),
     mime = require('mime'),
     path = require('path'),
     database = require('./database.json'),
-    port = process.env.PORT || 5000, // !!!!!2000
+    port = process.env.PORT || 2000, // !!!!!2000
+    host = process.env.HOST || '0.0.0.0',
     server;
 
     // add isWebPage or localhost
@@ -82,7 +83,7 @@ server = new http.Server(function(req, res) {
 
 });
 
-server.listen(port, function() { // may be additional / needed ??? or without https://
+server.listen(port, host, function() { // may be additional / needed ??? or without https://
     console.log('Server running at http://localhost:2000');
 });
 
