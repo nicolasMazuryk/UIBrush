@@ -84,6 +84,6 @@ server = new http.Server(function(req, res) {
 });
 
 server.listen(port, host, function() { // may be additional / needed ??? or without https://
-    console.log('Server running at http://localhost:2000');
+    console.log('Server running at ' + host + ':' + port);
 });
 
