@@ -78,7 +78,7 @@ server = new http.Server(function(req, res) {
     serverLoadContent(res, absPath);
 });
 
-server.listen(port, 'ui-brush.herokuapp.com', function() { // may be additional / needed ??? or without https://
+server.listen(port, function() { // may be additional / needed ??? or without https://
     console.log('Server running at http://localhost:2000');
 });
 
