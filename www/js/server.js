@@ -61,13 +61,17 @@ server = new http.Server(function(req, res) {
         });
     } else if (req.url == '/') {
         filePath = "../index.html";
+        absPath = filePath;     // or = "./" + filePath
+        serverLoadContent(res, absPath);
     } else {
         filePath = "../" + req.url;
+        absPath = "./" + filePath;
+        serverLoadContent(res, absPath);
     }
-    absPath = "./" + filePath;
 
     function sendPage(response, filePath, fileContents) {
-        response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))});
+        response.setHeader("Content-type", mime.lookup(path.basename(filePath)));
+        res.statusCode = 200;
         response.end(fileContents);
     }
     function serverLoadContent(response, absPath) {
@@ -75,10 +79,10 @@ server = new http.Server(function(req, res) {
             sendPage(response, absPath, data);
         });
     }
-    serverLoadContent(res, absPath);
+
 });
 
-server.listen(port, 'www.ui-brush.herokuapp.com', function() { // may be additional / needed ??? or without https://
+server.listen(port, 'localhost', function() { // may be additional / needed ??? or without https://
     console.log('Server running at http://localhost:2000');
 });
 

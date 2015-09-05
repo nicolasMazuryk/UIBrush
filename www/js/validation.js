@@ -1,7 +1,7 @@
 function validator() {
     var regName = /^[A-Za-z0-9_-]{3,16}$/,
         regEmail = /^([A-Za-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-        regMessage = /^[\w]{1,140}$/,
+        regMessage = /^[\w ]{1,140}$/,
         regExpArray = [regName, regEmail, regMessage],
         userNameInput = $('#username'),
         userEmailInput = $('#useremail'),
