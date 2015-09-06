@@ -9,8 +9,6 @@ var http = require('http'),
     host = process.env.HOST || '0.0.0.0',
     server;
 
-    // add isWebPage or localhost
-
 server = new http.Server(function(req, res) {
     var urlParsed = url.parse(req.url, true),
         requestOrigin = req.headers.origin,
@@ -19,7 +17,6 @@ server = new http.Server(function(req, res) {
         absPath,
         parsedData,
         json;
-    console.log('Server have been run inside!!!');
 
     if (requestOrigin) {
         res.setHeader('Access-Control-Allow-Origin', requestOrigin);
@@ -65,7 +62,7 @@ server = new http.Server(function(req, res) {
         filePath = "../index.html";
         absPath = filePath;     // or = "./" + filePath
         serverLoadContent(res, absPath);
-        console.log('Url / has been read and response to be sent');
+        console.log('The url "/" has been read and response to be sent');
 
     } else {
         filePath = "../" + req.url;
@@ -76,15 +73,13 @@ server = new http.Server(function(req, res) {
     function sendPage(response, filePath, fileContents) {
         response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))});
         response.end(fileContents);
-        console.log('index.html have be sent by sendPage');
-
+        console.log('index.html have be sent by function sendPage');
     }
     function serverLoadContent(response, absPath) {
         fs.readFile(absPath, function(err, data) {
             sendPage(response, absPath, data);
         });
     }
-
 });
 
 server.listen(port, host, function() { // may be additional / needed ??? or without https://
