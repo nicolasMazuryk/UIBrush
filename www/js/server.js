@@ -76,6 +76,7 @@ server = new http.Server(function(req, res) {
 
     function sendPage(response, filePath, fileContents) {
         response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))});
+        console.log('index.html should be sent!')
         response.end(fileContents);
     }
     function serverLoadContent(response, absPath) {
