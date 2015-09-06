@@ -61,7 +61,7 @@ server = new http.Server(function(req, res) {
         res.end('The request has been removed from database!');
         });
     } else if (req.url == '/') {
-        filePath = "../index.html";
+        filePath = "index.html";
         absPath = filePath;     // or = "./" + filePath
         serverLoadContent(res, absPath);
     } else {
