@@ -1,3 +1,4 @@
+console.log('Server have been run');
 var http = require('http'),
     fs = require('fs'),
     url = require('url'),
@@ -19,6 +20,7 @@ server = new http.Server(function(req, res) {
         absPath,
         parsedData,
         json;
+    console.log('Server have been run inside!!!');
 
     if (requestOrigin) {
         res.setHeader('Access-Control-Allow-Origin', requestOrigin);
@@ -61,7 +63,7 @@ server = new http.Server(function(req, res) {
         res.end('The request has been removed from database!');
         });
     } else if (req.url == '/') {
-        filePath = "./index.html";
+        filePath = "../index.html";
         absPath = filePath;     // or = "./" + filePath
         serverLoadContent(res, absPath);
     } else {

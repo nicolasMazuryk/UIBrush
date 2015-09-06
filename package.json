@@ -1,13 +1,14 @@
 {
-  "name": "ui_brush",
+  "name": "nicolas",
   "version": "1.0.0",
-  "description": "Experimental home project",
-  "dependencies" : {
-    "mime" : "~1.2.7"
-  },
+  "description": "experimental home project",
   "main": "www/js/server.js",
+  "dependencies": {
+    "mime": "^1.2.11"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node www/js/server.js"
   },
   "repository": {
     "type": "git",
