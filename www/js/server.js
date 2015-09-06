@@ -1,4 +1,3 @@
-console.log('Server have been run');
 var http = require('http'),
     fs = require('fs'),
     url = require('url'),
@@ -63,11 +62,11 @@ server = new http.Server(function(req, res) {
         res.end('The request has been removed from database!');
         });
     } else if (req.url == '/') {
-        console.log('Url / has been readed');
-
         filePath = "../index.html";
         absPath = filePath;     // or = "./" + filePath
         serverLoadContent(res, absPath);
+        console.log('Url / has been read and response to be sent');
+
     } else {
         filePath = "../" + req.url;
         absPath = "./" + filePath;
@@ -76,8 +75,9 @@ server = new http.Server(function(req, res) {
 
     function sendPage(response, filePath, fileContents) {
         response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))});
-        console.log('index.html should be sent!')
         response.end(fileContents);
+        console.log('index.html have be sent by sendPage');
+
     }
     function serverLoadContent(response, absPath) {
         fs.readFile(absPath, function(err, data) {
