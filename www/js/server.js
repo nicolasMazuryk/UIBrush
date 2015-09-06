@@ -71,8 +71,7 @@ server = new http.Server(function(req, res) {
     }
 
     function sendPage(response, filePath, fileContents) {
-        response.setHeader("Content-type", mime.lookup(path.basename(filePath)));
-        res.statusCode = 200;
+        response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))});
         response.end(fileContents);
     }
     function serverLoadContent(response, absPath) {
@@ -85,5 +84,6 @@ server = new http.Server(function(req, res) {
 
 server.listen(port, host, function() { // may be additional / needed ??? or without https://
     console.log('Server running at ' + host + ':' + port);
+    console.log(server)
 });
 
