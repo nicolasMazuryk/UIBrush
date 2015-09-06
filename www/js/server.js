@@ -63,6 +63,8 @@ server = new http.Server(function(req, res) {
         res.end('The request has been removed from database!');
         });
     } else if (req.url == '/') {
+        console.log('Url / has been readed');
+
         filePath = "../index.html";
         absPath = filePath;     // or = "./" + filePath
         serverLoadContent(res, absPath);
@@ -86,6 +88,5 @@ server = new http.Server(function(req, res) {
 
 server.listen(port, host, function() { // may be additional / needed ??? or without https://
     console.log('Server running at ' + host + ':' + port);
-    console.log(server)
 });
 
